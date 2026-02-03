@@ -4,6 +4,23 @@ MediaConverter is a simple Windows desktop app (WinForms) built around FFmpeg to
 
 The repository contains two different things, depending on what you are looking for 👇
 
+
+# ⬇️ Download (recommended)
+
+👉 If you only want the app, download just the usable version:
+
+### ➡️ Go to:
+
+[![Download MediaConverter](https://img.shields.io/badge/Download-MediaConverter-blue?style=for-the-badge)](https://github.com/isrooky/MediaConverter/releases/latest)
+
+
+You can download the folder as a ZIP from GitHub and extract it anywhere on your PC.
+
+You do NOT need Visual Studio to run the app.
+
+---
+
+
 ## 📁 Repository structure
 🔹 MediaConverter/
 
@@ -27,6 +44,9 @@ This folder contains:
 
 ### If you only want to use the app, you don’t need this folder.
 
+
+---
+
 ## 🔹 MediaConverterApp/ ⭐ (what most users want)
 
 This folder contains:
@@ -38,6 +58,8 @@ This folder contains:
   - A bundled compressed version of FFmpeg
 
 👉 This is the folder you want if you just want to run the app.
+
+---
 
 # 🚀 How to use the app (MediaConverterApp)
 
@@ -62,19 +84,6 @@ FFmpeg binaries are included as compressed .zip files
 This happens automatically and only once
 
 No manual setup required
-
-# ⬇️ Download (recommended)
-
-👉 If you only want the app, download just the usable version:
-
-### ➡️ Go to:
-
-[![Download MediaConverter](https://img.shields.io/badge/Download-MediaConverter-blue?style=for-the-badge)](https://github.com/isrooky/MediaConverter/releases/latest)
-
-
-You can download the folder as a ZIP from GitHub and extract it anywhere on your PC.
-
-You do NOT need Visual Studio to run the app.
 
 ---
 
