@@ -68,7 +68,9 @@ No manual setup required
 👉 If you only want the app, download just the usable version:
 
 ### ➡️ Go to:
-MediaConverterApp/
+
+[![Download MediaConverter](https://img.shields.io/badge/Download-MediaConverter-blue?style=for-the-badge)](https://github.com/isrooky/MediaConverter/releases/latest)
+
 
 You can download the folder as a ZIP from GitHub and extract it anywhere on your PC.
 
