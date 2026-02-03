@@ -11,7 +11,7 @@ The repository contains two different things, depending on what you are looking 
 
 ### ➡️ Go to:
 
-[![Download MediaConverter](https://img.shields.io/badge/Download-MediaConverter-blue?style=for-the-badge)](https://github.com/isrooky/MediaConverter/releases/latest)
+[![Download MediaConverter](https://img.shields.io/badge/Download-MediaConverter-blue?style=for-the-badge)]([https://github.com/isrooky/MediaConverter/releases/latest](https://github.com/isrooky/Media-Converter/releases/tag/v1.0.0))
 
 
 You can download the folder as a ZIP from GitHub and extract it anywhere on your PC.
