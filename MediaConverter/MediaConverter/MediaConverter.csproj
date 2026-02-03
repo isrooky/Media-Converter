@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon>Media_30731.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="Media_30731.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="ffmpeg\bin\ffmpeg.exe">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy /E /I /Y &quot;$(ProjectDir)ffmpeg&quot; &quot;$(TargetDir)ffmpeg&quot;&#xD;&#xA;" />
+  </Target>
+
+</Project>
