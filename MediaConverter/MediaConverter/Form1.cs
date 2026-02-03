@@ -4,7 +4,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-
+using System.IO.Compression;
 namespace MediaConverter
 {
     public partial class Form1 : Form
@@ -21,6 +21,42 @@ namespace MediaConverter
             ".png", ".jpg", ".jpeg", ".bmp", ".webp", ".tif", ".tiff"
         };
         private Color selectedKeyColor = Color.White; // default
+        private string GetToolBinDir()
+        {
+            // donde tú ya tienes ffmpeg\bin
+            return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ffmpeg", "bin");
+        }
+
+        private string EnsureToolExe(string exeNameWithoutExt)
+        {
+            // exeNameWithoutExt: "ffmpeg" | "ffprobe" | "ffplay"
+            var binDir = GetToolBinDir();
+            Directory.CreateDirectory(binDir);
+
+            var exePath = Path.Combine(binDir, exeNameWithoutExt + ".exe");
+            if (File.Exists(exePath))
+                return exePath;
+
+            // Si no existe el exe, probamos con el zip
+            var zipPath = Path.Combine(binDir, exeNameWithoutExt + ".zip");
+            if (!File.Exists(zipPath))
+                return exePath; // devolverá una ruta que no existe; tu ValidateInputReady ya avisará
+
+            // Extrae el zip dentro del mismo binDir
+            // IMPORTANTE: el zip debe contener el .exe (idealmente en la raíz del zip)
+            ZipFile.ExtractToDirectory(zipPath, binDir, overwriteFiles: true);
+
+            // Caso común: el exe sale directo
+            if (File.Exists(exePath))
+                return exePath;
+
+            // Caso alternativo: el zip trae subcarpetas (buscamos el exe dentro)
+            var found = Directory.GetFiles(binDir, exeNameWithoutExt + ".exe", SearchOption.AllDirectories).FirstOrDefault();
+            if (found != null)
+                return found;
+
+            return exePath; // no encontrado
+        }
 
 
         public Form1()
@@ -281,16 +317,16 @@ namespace MediaConverter
         // =========================
         // FFmpeg PATHS
         // =========================
-
         private string GetFfmpegPath()
         {
-            return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ffmpeg", "bin", "ffmpeg.exe");
+            return EnsureToolExe("ffmpeg");
         }
 
         private string GetFfprobePath()
         {
-            return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ffmpeg", "bin", "ffprobe.exe");
+            return EnsureToolExe("ffprobe");
         }
+
 
         // =========================
         // VIDEO CONVERT
