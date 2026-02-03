@@ -2,6 +2,8 @@
 
 MediaConverter is a simple Windows desktop app (WinForms) built around FFmpeg to convert, compress, cut videos and process images (channels, transparency, etc.).
 
+<img width="800" height="481" alt="image" src="https://github.com/user-attachments/assets/b4a9dfe8-e872-44c5-a09f-4a11554356dd" />
+
 The repository contains two different things, depending on what you are looking for 👇
 
 
